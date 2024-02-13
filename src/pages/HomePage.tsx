@@ -1,10 +1,12 @@
-import { NavBar } from '../components/NavBar'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
 
 function HomePage() {
   return (
     <>
-      <NavBar />
+      <Header />
       <div>HomePage</div>
+      <Footer />
     </>
   )
 }
