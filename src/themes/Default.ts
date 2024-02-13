@@ -1,4 +1,32 @@
-export const theme = {
+import { Theme } from '../types/Theme'
+
+export const theme: Theme = {
+  colors: {
+    primary: '#8F98F6',
+    secondary: '#5053E7',
+    white: '#E1E2F4',
+    sand: '#BC9890',
+    gray: {
+      50: '#F9FAFB',
+      100: '#F2F3F4',
+      200: '#E0E3E7',
+      300: '#BDBDBD',
+      400: '#9E9E9E',
+      500: '#757575',
+      600: '#4A4A4A',
+      700: '#212121',
+      800: '#1A1A1A',
+      900: '#000000',
+    },
+    success: '#00C897',
+    warning: '#FF9800',
+    error: '#F04438',
+  },
+  shadows: {
+    default: '0 1px 3px rgba(0, 0, 0, 0.1)',
+    hover: '0 4px 6px rgba(0, 0, 0, 0.15)',
+    focused: '0 0 0 2px rgba(0, 0, 0, 0.2)',
+  },
   appTitleColor: '#8F98F6',
   backgroundGradient: {
     color1: '#E1E2F4',
@@ -24,25 +52,3 @@ export const theme = {
   smallIconColor: '#A1B9CE',
   smallIconTextColor: '#7B98B2',
 }
-
-// {
-//   colors: {
-//     primary: '#8F98F6',
-//     secondary: '#5053E7',
-//     white: '#E1E2F4',
-//     sand: '#BC9890',
-//   },
-//   fonts: {
-//     primary: 'Helvetica',
-//   },
-//   fontSizes: {
-//     small: '12px',
-//     medium: '16px',
-//     large: '20px',
-//   },
-//   shadows: {
-//     small: 'rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px',
-//     medium: 'rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;',
-//     large: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;',
-//   },
-// }

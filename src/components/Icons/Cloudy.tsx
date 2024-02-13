@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 
-const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
+const CloudyIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns='http://www.w3.org/2000/svg' width={48} height={48} {...props}>
     <path fill='#BBDEFB' d='M29.5 12a8.5 8.5 0 1 0 0 17 8.5 8.5 0 1 0 0-17Z' />
     <path
@@ -15,4 +15,4 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
     />
   </svg>
 )
-export default SvgComponent
+export default CloudyIcon
