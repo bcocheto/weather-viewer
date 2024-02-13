@@ -4,10 +4,10 @@ import SearchIcon from '../Icons/Search'
 
 export const SearchElement = styled.div`
   position: relative;
-  height: 3.25rem;
-  border-radius: 26px;
-  background: ${({ theme }) => theme.panelBgColor};
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0.5rem;
+  border-radius: 0.5rem;
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.shadows.default};
   margin-bottom: 1.4rem;
   display: flex;
   align-items: center;
@@ -16,22 +16,24 @@ export const SearchElement = styled.div`
 export const SearchInput = styled.input`
   flex: 1;
   margin-left: 1rem;
-  height: 3.25rem;
   border: none;
-  background-color: ${({ theme }) => theme.panelBgColor};
+  background-color: ${({ theme }) => theme.colors.white};
   font-size: 1.125rem;
-  color: ${({ theme }) => theme.searchInput.color};
+  color: ${({ theme }) => theme.colors.gray[500]};
   width: 100%;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: ${({ theme }) => theme.searchInput.placeholderColor};
+    color: ${({ theme }) => theme.colors.primary};
   }
 `
-export const Search = styled(SearchIcon)`
+export const IconSearch = styled(SearchIcon)`
   margin-left: 1.2rem;
-  fill: #4a6fa1;
+  fill: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    fill: ${({ theme }) => theme.colors.secondary};
+  }
 `
 export const LocationButton = styled.button`
   border: none;
@@ -42,16 +44,19 @@ export const LocationButton = styled.button`
   &:hover svg {
   }
 `
-export const Location = styled(LocationIcon)`
+export const IconLocation = styled(LocationIcon)`
   margin-right: 1.2rem;
-  fill: #4a6fa1;
+  fill: ${({ theme }) => theme.colors.primary};
+  &:hover {
+    fill: ${({ theme }) => theme.colors.secondary};
+  }
 `
 export const SearchResult = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  background: ${({ theme }) => theme.searchSuggestion.backgroundColor};
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ theme }) => theme.shadows.default};
   width: 98%;
   left: 1%;
   top: 3.35rem;

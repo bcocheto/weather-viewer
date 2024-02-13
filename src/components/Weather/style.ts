@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const WeatherContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: ${({ theme }) => theme.shadows.default};
   border-radius: 15px;
   padding: 1.5rem 2rem;
   display: flex;
