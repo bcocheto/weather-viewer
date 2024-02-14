@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SuggestionItem = styled.a`
-  color: #2079c9;
+  color: ${({ theme }) => theme.colors.primary};
   text-decoration: none;
   padding: 0.6rem 1rem;
   display: block;
@@ -10,6 +10,6 @@ export const SuggestionItem = styled.a`
   font-size: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: ${({ theme }) => theme.searchSuggestion.hoverBackgroundColor};
+    background-color: ${({ theme }) => theme.colors.gray[200]};
   }
 `
