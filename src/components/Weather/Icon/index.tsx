@@ -19,11 +19,15 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
 
   switch (props.code) {
     // Clear
+    case 0:
     case 800:
       Icon = SunnyIcon
       break
 
     // Cloud
+    case 1:
+    case 2:
+    case 3:
     case 801:
     case 802:
       Icon = PartlyCloudyIcon
@@ -35,12 +39,20 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
 
     // Rain
     case 500:
+    case 61:
+    case 63:
+    case 65:
     case 501:
     case 520:
     case 521:
     case 511:
       Icon = RainIcon
       break
+    case 66:
+    case 67:
+    case 80:
+    case 81:
+    case 82:
     case 502:
     case 503:
     case 504:
@@ -50,6 +62,11 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       break
 
     // Drizzle
+    case 51:
+    case 53:
+    case 55:
+    case 56:
+    case 57:
     case 300:
     case 301:
     case 302:
@@ -63,7 +80,9 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       break
 
     // Thunderstorm
-    case 200:
+    case 95:
+    case 96:
+    case 99:
     case 201:
     case 202:
     case 210:
@@ -77,6 +96,9 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
       break
 
     // Snow
+    case 71:
+    case 73:
+    case 75:
     case 600:
     case 601:
     case 602:
@@ -89,11 +111,16 @@ const WeatherIcon: React.FC<IWeatherIconProps> = (props) => {
     case 622:
       Icon = SnowIcon
       break
+    case 77:
+    case 85:
+    case 86:
     case 611:
       Icon = SleetIcon
       break
 
     // Atmosphere
+    case 45:
+    case 48:
     case 701:
     case 711:
     case 721:

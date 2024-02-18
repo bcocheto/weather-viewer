@@ -1,49 +1,64 @@
 import * as React from 'react'
 import { useContext } from 'react'
+import { AppContext } from '../../../context/AppContext'
 import { PlaceContext } from '../../../context/PlaceContext'
-import { Place } from '../../../types/Place'
+import { WeatherContext } from '../../../context/WeatherContext'
+import { LocalPlace } from '../../../types/Place'
 import { SuggestionItem } from './style'
 
 interface SuggestionProps {
-  place: Place
+  place: LocalPlace
+  provider: 'openweather' | 'openmeteo'
   hideSuggestionFn: () => void
 }
 
 const Suggestion: React.FC<SuggestionProps> = (props) => {
-  const { setPlaceSelected, increaseItem, places } = useContext(PlaceContext)
+  const { setPlaceSelected, increaseItem, localPlaces } = useContext(PlaceContext)
+  const { place, provider } = props
+  const {
+    setCurrentWeather,
+    fetchOpenMeteoCurrentWeather,
+    fetchOpenMeteoForecastData,
+    fetchOpenWeatherCurrentWeather,
+    fetchOpenWeatherForecastData,
+  } = useContext(WeatherContext)
+  const { toggleLoading } = useContext(AppContext)
+
+  const verifyPlaceExists = (): boolean => {
+    return localPlaces.some((item) => item.name === place.name && item.country === place.country)
+  }
+
+  const callFuncWithProvider = (place: LocalPlace): void => {
+    if (provider === 'openweather') {
+      toggleLoading(true)
+      fetchOpenWeatherCurrentWeather(place)
+      fetchOpenWeatherForecastData(place)
+      toggleLoading(false)
+    }
+    if (provider === 'openmeteo') {
+      toggleLoading(true)
+      fetchOpenMeteoCurrentWeather(place)
+      fetchOpenMeteoForecastData(place)
+      toggleLoading(false)
+    }
+  }
 
   const onClick = () => {
-    // Verifica se o lugar já está presente na lista de lugares
-    const placeExists = places.some(
-      (item) => item.name === props.place.name && item.state === props.place.state,
-    )
-    // Se o lugar não existe na lista de lugares, então aumenta o item e define o lugar selecionado
-    if (!placeExists) {
-      increaseItem(props.place)
-      setPlaceSelected(props.place)
+    setCurrentWeather(null)
+    if (!verifyPlaceExists()) {
+      increaseItem(place)
     }
-    // Oculta a sugestão após um breve atraso
+    callFuncWithProvider(place)
+    setPlaceSelected(place)
     setTimeout(() => {
       props.hideSuggestionFn()
     }, 100)
   }
 
   return (
-    <>
-      <SuggestionItem onClick={onClick}>
-        {props.place.name}, {props.place.state}
-      </SuggestionItem>
-      {places.length > 0 &&
-        places.map(
-          (item: Place) =>
-            item.name !== props.place.name &&
-            item.state !== props.place.state && (
-              <SuggestionItem key={item.name} onClick={onClick}>
-                {item.name}, {item.state}
-              </SuggestionItem>
-            ),
-        )}
-    </>
+    <SuggestionItem onClick={onClick}>
+      {place.name}, {place.state} - {place.country}
+    </SuggestionItem>
   )
 }
 

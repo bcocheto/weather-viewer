@@ -1,21 +1,20 @@
+// Importe o tipo AxiosResponse do axios
 import { Place } from '../../../types/Place'
 import { Api } from '../axios-config'
 
-type Places = {
-  data: Place[]
-}
+// Interface para representar a estrutura dos dados retornados pela API de geocodificação
 
-const get = async (adress: string): Promise<Places | Error> => {
+const get = async (address: string): Promise<Place[] | Error> => {
   try {
-    const response = await Api.get(
-      `/geo/1.0/direct?q=${adress}&appid=${import.meta.env.VITE_API_KEY_OPEN_WEATHER}`,
+    // Tipar a resposta da requisição como AxiosResponse<GeocodingResponse>
+    const { results }: { results: Place[] } = await Api.get(
+      `https://geocoding-api.open-meteo.com/v1/search?name=${address}&count=3&language=pt-br&format=json`,
     )
-    console.log(response)
-
-    if (response) {
-      return response
+    // Verificar se a resposta foi bem-sucedida e se possui dados
+    if (results.length > 0) {
+      return results
     }
-    return new Error('Erro ao listar os registros.')
+    return new Error('Cidade não encontrada.')
   } catch (error) {
     console.error(error)
     return new Error((error as { message: string }).message || 'Erro ao listar os registros.')

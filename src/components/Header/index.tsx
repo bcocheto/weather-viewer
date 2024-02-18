@@ -5,7 +5,7 @@ import { GithubLink, HeaderContainer, HeaderIconsContainer, Title } from './styl
 const Header: React.FC = () => {
   return (
     <HeaderContainer>
-      <Title>React Weather</Title>
+      <Title>Weather Viewer</Title>
       <HeaderIconsContainer>
         <GithubLink href='http://www.github.com/bcocheto/weather-viewer'>
           <GithubIcon />

@@ -5,6 +5,7 @@ export const ForecastItemContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+  width: max-content;
   h6 {
     font-weight: 600;
     font-size: 1.125rem;
@@ -23,7 +24,7 @@ export const ForecastItemContainer = styled.div`
   span {
     font-size: 1.125rem;
     color: #4a6fa1;
-    width: 5rem;
     text-align: center;
+    width: 6rem;
   }
 `

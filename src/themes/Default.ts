@@ -27,27 +27,9 @@ export const theme: Theme = {
     hover: '0 4px 6px rgba(0, 0, 0, 0.15)',
     focused: '0 0 0 2px rgba(0, 0, 0, 0.2)',
   },
-  appTitleColor: '#8F98F6',
   backgroundGradient: {
     color1: '#E1E2F4',
     color2: '#5053E7',
-  },
-  panelBgColor: '#E1E2F4',
-  panelTitleColor: '#BC9890',
-  forecastPanelBgColor: 'rgba(225, 226, 244, 0.75)',
-  searchInput: {
-    color: '#BC9890',
-    placeholderColor: '#8F98F6',
-  },
-  temperatureSwitch: {
-    backgroundColor: '#8F98F6',
-    sliderColor: '#fff',
-    textColor: '#fff',
-  },
-  searchSuggestion: {
-    backgroundColor: '#fff',
-    hoverBackgroundColor: '#f9f9f9',
-    seperatorLineColor: '#ccc',
   },
   smallIconColor: '#A1B9CE',
   smallIconTextColor: '#7B98B2',

@@ -1,37 +1,36 @@
 import { createContext, ReactNode, useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import { Place } from '../types/Place'
+import { LocalPlace, Place } from '../types/Place'
 
 type PlaceProviderProps = {
   children: ReactNode
 }
 
 type PlaceContextProps = {
-  increaseItem: (place: Place) => void
+  increaseItem: (place: LocalPlace) => void
   removeItems: () => void
-  setPlaceSelected: (place: Place | null) => void
-  places: Place[]
-  placeSelected: Place | null
+  setPlaceSelected: (place: LocalPlace | null) => void
+  localPlaces: LocalPlace[]
+  placeSelected: LocalPlace | null
 }
 
 export const PlaceContext = createContext({} as PlaceContextProps)
 
 export const PlaceProvider = ({ children }: PlaceProviderProps) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [places, setPlaces] = useLocalStorage<Place[]>('places', [])
-  const [placeSelected, setPlaceSelected] = useState<Place | null>(null)
+  const [localPlaces, setLocalPlaces] = useLocalStorage<LocalPlace[]>('places', [])
+  const [placeSelected, setPlaceSelected] = useState<LocalPlace | null>(null)
 
-  function increaseItem(place: Place) {
+  function increaseItem(place: LocalPlace) {
     setPlaceSelected(place)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    setPlaces((currentItems: any) => {
-      if (currentItems.find((item: Place) => item.name === place.name) == null) {
+    setLocalPlaces((currentItems: any) => {
+      if (currentItems.find((item: LocalPlace) => item.name === place.name) == null) {
         return [
           ...currentItems,
           {
             name: place.name,
-            state: place.state,
             country: place.country,
+            state: place.state,
             lat: place.lat,
             lon: place.lon,
           },
@@ -42,8 +41,8 @@ export const PlaceProvider = ({ children }: PlaceProviderProps) => {
             return {
               ...item,
               name: place.name,
-              state: place.state,
               country: place.country,
+              state: place.state,
               lat: place.lat,
               lon: place.lon,
             }
@@ -54,7 +53,7 @@ export const PlaceProvider = ({ children }: PlaceProviderProps) => {
   }
 
   function removeItems() {
-    setPlaces([])
+    setLocalPlaces([])
   }
 
   return (
@@ -63,7 +62,7 @@ export const PlaceProvider = ({ children }: PlaceProviderProps) => {
         increaseItem,
         removeItems,
         setPlaceSelected,
-        places,
+        localPlaces,
         placeSelected,
       }}
     >

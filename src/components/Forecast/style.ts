@@ -17,7 +17,7 @@ export const ForecastItems = styled.div`
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-
+  gap: 1.5rem;
   > :last-child {
     margin-right: 0;
   }

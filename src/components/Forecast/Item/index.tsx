@@ -5,8 +5,8 @@ import { ForecastItemContainer } from './style'
 interface IForecastItemProps {
   day: string
   weatherCode: number
-  high: number
-  low: number
+  min: number
+  max: number
   main: string
 }
 const ForecastItem: React.FC<IForecastItemProps> = (props) => {
@@ -16,10 +16,10 @@ const ForecastItem: React.FC<IForecastItemProps> = (props) => {
       <WeatherIcon code={props.weatherCode} />
       <p>{props.main}</p>
       <span>
-        {props.low}
+        {props.min}
         <sup>&deg;</sup>
-        <small> / </small>
-        {props.high}
+        {' - '}
+        {props.max}
         <sup>&deg;</sup>
       </span>
     </ForecastItemContainer>

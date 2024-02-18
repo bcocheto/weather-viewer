@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import LocationIcon from '../Icons/Location'
-import SearchIcon from '../Icons/Search'
 
 export const SearchElement = styled.div`
   position: relative;
@@ -28,14 +27,8 @@ export const SearchInput = styled.input`
     color: ${({ theme }) => theme.colors.primary};
   }
 `
-export const IconSearch = styled(SearchIcon)`
-  margin-left: 1.2rem;
-  fill: ${({ theme }) => theme.colors.primary};
-  &:hover {
-    fill: ${({ theme }) => theme.colors.secondary};
-  }
-`
-export const LocationButton = styled.button`
+
+export const SearchButton = styled.button`
   border: none;
   cursor: pointer;
   background-color: transparent;
@@ -44,7 +37,7 @@ export const LocationButton = styled.button`
   &:hover svg {
   }
 `
-export const IconLocation = styled(LocationIcon)`
+export const IconSearch = styled(LocationIcon)`
   margin-right: 1.2rem;
   fill: ${({ theme }) => theme.colors.primary};
   &:hover {
@@ -62,4 +55,39 @@ export const SearchResult = styled.div`
   top: 3.35rem;
   border-radius: 5px;
   overflow: hidden;
+  max-height: 10rem;
+  overflow-y: auto;
+`
+
+export const Select = styled.select`
+  flex: 1;
+  margin: 0 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.primary};
+  width: max-content;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  outline: none;
+  cursor: pointer;
+
+  &:focus {
+    border-color: ${({ theme }) => theme.colors.secondary};
+  }
+
+  option {
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.white};
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.gray[100]};
+    }
+
+    &:selected {
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
 `

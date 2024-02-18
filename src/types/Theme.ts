@@ -31,27 +31,9 @@ interface ShadowValues {
 export type Theme = {
   colors: ColorPalette
   shadows: ShadowValues
-  appTitleColor: string
   backgroundGradient: {
     color1: string
     color2: string
-  }
-  panelBgColor: string
-  panelTitleColor: string
-  forecastPanelBgColor: string
-  searchInput: {
-    color: string
-    placeholderColor: string
-  }
-  temperatureSwitch: {
-    backgroundColor: string
-    sliderColor: string
-    textColor: string
-  }
-  searchSuggestion: {
-    backgroundColor: string
-    hoverBackgroundColor: string
-    seperatorLineColor: string
   }
   smallIconColor: string
   smallIconTextColor: string
