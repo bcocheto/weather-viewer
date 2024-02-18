@@ -53,7 +53,7 @@
 - #### Inicie o servidor
 
 ```
-  $ npm start ou yarn start
+  $ npm run dev ou yarn dev
 ```
 
 - #### Acesse o projeto no navegador
