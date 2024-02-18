@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react'
 
+// Hook para lidar com o clique fora de um elemento
 export const useClickOutside = (element: any, callback: () => void) => {
   useEffect(() => {
     const handleClickOutside = (event: Event) => {

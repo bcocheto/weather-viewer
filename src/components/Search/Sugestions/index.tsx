@@ -28,6 +28,7 @@ const Suggestion: React.FC<SuggestionProps> = (props) => {
     return localPlaces.some((item) => item.name === place.name && item.country === place.country)
   }
 
+  // Chamar função de busca conforme o provider
   const callFuncWithProvider = (place: LocalPlace): void => {
     if (provider === 'openweather') {
       toggleLoading(true)

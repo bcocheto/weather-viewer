@@ -6,7 +6,7 @@ import { useClickOutside } from '../../hooks/useClickOutside'
 import { GeoService } from '../../services/api/geolocation/GeoService'
 import { LocalPlace, Place } from '../../types/Place'
 import Suggestion from './Sugestions'
-import { IconSearch, SearchButton, SearchElement, SearchInput, SearchResult, Select } from './style'
+import { IconSearch, SearchButton, SearchElement, SearchResult, Select } from './style'
 
 const options = [
   { value: 'openweather', label: 'OpenWeather' },
@@ -19,7 +19,7 @@ const Search: React.FC = () => {
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [searchTerm, setSearchTerm] = useState('')
   const { get } = GeoService
-  const { localPlaces, placeSelected } = useContext(PlaceContext)
+  const { localPlaces } = useContext(PlaceContext)
   const [selectedOption, setSelectedOption] = useState('')
   const { provider, toggleProvider, toggleLoading } = useContext(AppContext)
 
@@ -93,7 +93,7 @@ const Search: React.FC = () => {
   return (
     <SearchElement>
       <DebounceInput
-        element={SearchInput}
+        element={'input'}
         onChange={onSearchInputChanged}
         placeholder={'Pesquisar uma cidade'}
       />

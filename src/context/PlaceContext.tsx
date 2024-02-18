@@ -20,6 +20,7 @@ export const PlaceProvider = ({ children }: PlaceProviderProps) => {
   const [localPlaces, setLocalPlaces] = useLocalStorage<LocalPlace[]>('places', [])
   const [placeSelected, setPlaceSelected] = useState<LocalPlace | null>(null)
 
+  // Adiciona uma nova localidade no array do localStorage
   function increaseItem(place: LocalPlace) {
     setPlaceSelected(place)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -52,6 +53,7 @@ export const PlaceProvider = ({ children }: PlaceProviderProps) => {
     })
   }
 
+  // TODO: Adicionar funcionalidade de remocão de itens
   function removeItems() {
     setLocalPlaces([])
   }

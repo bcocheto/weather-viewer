@@ -1,6 +1,8 @@
 import { ForecastData } from '../types/Forecast'
 import { Weather } from '../types/Weather'
 import { translateWeather } from './WeatherTranslation'
+
+// Converte os dados do OpenWeatherMap para o formato Weather
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertOpenWeatherToWeather(responseData: any): Weather {
   return {
@@ -30,6 +32,7 @@ export function convertOpenWeatherToWeather(responseData: any): Weather {
   }
 }
 
+// Converte os dados do OpenWeatherMap para o formato Forecast
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertOpenWeatherToForecast(responseData: any): ForecastData[] {
   const forecastData: ForecastData[] = []
@@ -49,6 +52,7 @@ export function convertOpenWeatherToForecast(responseData: any): ForecastData[] 
   return forecastData
 }
 
+// Converte os dados do OpenMeteo para o formato Weather
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertOpenMeteoWeatherToWeather(responseData: any): Weather {
   return {
@@ -78,6 +82,7 @@ export function convertOpenMeteoWeatherToWeather(responseData: any): Weather {
   }
 }
 
+// Converte os dados do OpenMeteo para o formato Forecast
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function convertWeatherDataToForecast(data: any): ForecastData[] {
   const forecastData: ForecastData[] = []

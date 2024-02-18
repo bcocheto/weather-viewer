@@ -11,20 +11,21 @@ export const SearchElement = styled.div`
   display: flex;
   align-items: center;
   z-index: 1;
-`
-export const SearchInput = styled.input`
-  flex: 1;
-  margin-left: 1rem;
-  border: none;
-  background-color: ${({ theme }) => theme.colors.white};
-  font-size: 1.125rem;
-  color: ${({ theme }) => theme.colors.gray[500]};
-  width: 100%;
-  &:focus {
-    outline: none;
-  }
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.primary};
+
+  input {
+    flex: 1;
+    margin-left: 1rem;
+    border: none;
+    background-color: ${({ theme }) => theme.colors.white};
+    font-size: 1.125rem;
+    color: ${({ theme }) => theme.colors.gray[500]};
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+    &::placeholder {
+      color: ${({ theme }) => theme.colors.primary};
+    }
   }
 `
 
