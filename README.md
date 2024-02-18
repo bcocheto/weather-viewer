@@ -1,11 +1,11 @@
 <h1 align="center">
 <br>
+<img src="/public/logo.png">
   <br>
   <br>
   Weather Viewer
   <br>
   <br>
-  <a target="_blank" href="https://link_para_o_seu_projeto_aqui">https://link_para_o_seu_projeto_aqui</a>
 </h1>
 
 ---
